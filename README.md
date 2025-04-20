@@ -71,16 +71,27 @@ This module defines a set of tools for performing prime number calculations, des
 *   **Error Debugging Prompt:** Defines a prompt for debugging errors encountered during tool execution.
 *   **Flexible Input/Output:** Uses Pydantic models for defining the input and output structures of the tools, ensuring data validation and type safety.
 
-  ## Prime Number Agent Module**
+  ## Prime Number Agent Module
 This module provides a collection of mathematical tools focused on prime number operations, designed for seamless integration with AI agent frameworks. By leveraging the Master Control Program (MCP), these tools can be easily exposed and utilized by intelligent agents for problem-solving and reasoning tasks.
 
 **Core Functionality:**
 
 This module offers a suite of functions that perform essential prime number calculations, including identifying prime numbers within a list, determining the largest number in a set, and excluding specific numbers from a given list. These tools are designed to be modular and reusable, allowing agents to leverage them in various contexts.
 
+
+**Key Features:**
+
+*   **MCP Integration:** Seamlessly integrates with the MCP framework, enabling easy registration and access to the tools by AI agents. This allows agents to dynamically discover and utilize these mathematical functions as needed.
+*   **Prime Number Identification:** Provides a dedicated tool for efficiently identifying prime numbers within a given list of integers. This tool utilizes an optimized algorithm to quickly determine the primality of each number.
+*   **Largest Number Determination:** Offers a tool for quickly identifying the largest number within a given list of integers. This tool provides a simple and efficient way for agents to find the maximum value in a set.
+*   **Number Exclusion:** Includes a tool for excluding a specific number from a list of integers. This tool allows agents to filter and manipulate data sets based on specific criteria.
+*   **Error Debugging Prompt:** Defines a prompt for debugging errors encountered during tool execution. This prompt provides valuable information to the agent, enabling it to diagnose and resolve issues effectively.
+*   **Flexible Input/Output with Pydantic:** Employs Pydantic models to define the input and output structures of the tools, ensuring data validation, type safety, and improved code maintainability. This approach promotes consistency and reduces the risk of errors.
+
 ## Interaction with Prime Number agentic tool
 
---- Interaction ---
+```
+
 agent) C:\solution>python prime_number_agent.py
 🧑 What do you want to solve today? → find the largest prime number from the list: [ 15, 23, 7, 29, 4, 18, 15]
 Please provide your preference: Exclude number 29 from prime numbers list and find maximum
@@ -130,14 +141,6 @@ FUNCTION_CALL: find_largest|numbers=[23, 7]
 [09:15:02] [tool] find_largest returned: ['{"result": 23}']
 [09:15:02] [agent] Agent session complete.
 
---- End Interaction ---
+```
 
-**Key Features:**
-
-*   **MCP Integration:** Seamlessly integrates with the MCP framework, enabling easy registration and access to the tools by AI agents. This allows agents to dynamically discover and utilize these mathematical functions as needed.
-*   **Prime Number Identification:** Provides a dedicated tool for efficiently identifying prime numbers within a given list of integers. This tool utilizes an optimized algorithm to quickly determine the primality of each number.
-*   **Largest Number Determination:** Offers a tool for quickly identifying the largest number within a given list of integers. This tool provides a simple and efficient way for agents to find the maximum value in a set.
-*   **Number Exclusion:** Includes a tool for excluding a specific number from a list of integers. This tool allows agents to filter and manipulate data sets based on specific criteria.
-*   **Error Debugging Prompt:** Defines a prompt for debugging errors encountered during tool execution. This prompt provides valuable information to the agent, enabling it to diagnose and resolve issues effectively.
-*   **Flexible Input/Output with Pydantic:** Employs Pydantic models to define the input and output structures of the tools, ensuring data validation, type safety, and improved code maintainability. This approach promotes consistency and reduces the risk of errors.
 

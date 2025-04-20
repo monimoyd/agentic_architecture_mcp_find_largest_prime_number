@@ -78,6 +78,60 @@ This module provides a collection of mathematical tools focused on prime number 
 
 This module offers a suite of functions that perform essential prime number calculations, including identifying prime numbers within a list, determining the largest number in a set, and excluding specific numbers from a given list. These tools are designed to be modular and reusable, allowing agents to leverage them in various contexts.
 
+## Interaction with Prime Number agentic tool
+
+--- Interaction ---
+agent) C:\solution>python prime_number_agent.py
+🧑 What do you want to solve today? → find the largest prime number from the list: [ 15, 23, 7, 29, 4, 18, 15]
+Please provide your preference: Exclude number 29 from prime numbers list and find maximum
+[agent] Starting agent...
+[agent] Current working directory: C:\eag_v1\session6\assignment_final
+Connection established, creating session...
+[agent] Session created, initializing...
+[agent] MCP session initialized
+Available tools: ['find_prime_numbers', 'find_largest', 'exclude_number']
+Requesting tool list...
+[09:14:49] [agent] 3 tools loaded
+[09:14:49] [loop] Step 1 started
+[09:14:55] [perception] LLM output: {"intent": "find largest prime excluding a specific number", "entities": ["15", "23", "7", "29", "4", "18", "15", "29", "prime", "largest", "maximum"], "tool_hint": "Calculator"}
+[09:14:55] [perception] Intent: find largest prime excluding a specific number, Tool hint: Calculator
+[09:14:55] [memory] Retrieved 0 relevant memories
+[09:14:57] [plan] LLM output: First, I need to identify the prime numbers from the given list.
+FUNCTION_CALL: find_prime_numbers|numbers=[15, 23, 7, 29, 4, 18, 15]
+[09:14:57] [plan] Plan generated: FUNCTION_CALL: find_prime_numbers|numbers=[15, 23, 7, 29, 4, 18, 15]
+[09:14:57] [parser] Parsed: find_prime_numbers → {'input': {'a': [15, 23, 7, 29, 4, 18, 15]}}
+[09:14:57] [tool] ⚙️ Calling 'find_prime_numbers' with: {'input': {'a': [15, 23, 7, 29, 4, 18, 15]}}
+[09:14:57] [tool] ✅ find_prime_numbers result: ['{"result": [23, 7, 29]}']
+[09:14:57] [tool] find_prime_numbers returned: ['{"result": [23, 7, 29]}']
+[09:14:57] [loop] Step 2 started
+[09:14:58] [perception] LLM output: {"intent": "Find the largest prime number excluding 29", "entities": ["29", "prime number", "largest"], "tool_hint": "Calculator"}
+[09:14:58] [perception] Intent: Find the largest prime number excluding 29, Tool hint: Calculator
+[09:14:58] [memory] Retrieved 1 relevant memories
+[09:14:59] [plan] LLM output: The problem is to find the largest prime number from the list [15, 23, 7, 29, 4, 18, 15] excluding 29.
+The previous output indicates that the prime numbers in the list are [23, 7, 29].
+Now, I need to find the largest number from the prime numbers excluding 29.
+First I need to exclude 29.
+FUNCTION_CALL: exclude_number|numbers=[23, 7, 29]|exclude=29
+[09:14:59] [plan] Plan generated: FUNCTION_CALL: exclude_number|numbers=[23, 7, 29]|exclude=29
+[09:14:59] [parser] Parsed: exclude_number → {'input': {'a': [23, 7, 29], 'b': 29}}
+[09:14:59] [tool] ⚙️ Calling 'exclude_number' with: {'input': {'a': [23, 7, 29], 'b': 29}}
+[09:14:59] [tool] ✅ exclude_number result: ['{"result": [23, 7]}']
+[09:14:59] [tool] exclude_number returned: ['{"result": [23, 7]}']
+[09:14:59] [loop] Step 3 started
+[09:15:00] [perception] LLM output: {"intent": "find the largest prime number excluding 29", "entities": ["29", "prime number", "largest"], "tool_hint": "Calculator"}
+[09:15:00] [perception] Intent: find the largest prime number excluding 29, Tool hint: Calculator
+[09:15:00] [memory] Retrieved 2 relevant memories
+[09:15:02] [plan] LLM output: The problem is to find the largest prime number from the list [15, 23, 7, 29, 4, 18, 15] excluding 29. The previous steps identified [23, 7] as prime numbers after excluding 29. Now I need to find the largest number from the list [23, 7].
+FUNCTION_CALL: find_largest|numbers=[23, 7]
+[09:15:02] [plan] Plan generated: FUNCTION_CALL: find_largest|numbers=[23, 7]
+[09:15:02] [parser] Parsed: find_largest → {'input': {'a': [23, 7]}}
+[09:15:02] [tool] ⚙️ Calling 'find_largest' with: {'input': {'a': [23, 7]}}
+[09:15:02] [tool] ✅ find_largest result: ['{"result": 23}']
+[09:15:02] [tool] find_largest returned: ['{"result": 23}']
+[09:15:02] [agent] Agent session complete.
+
+--- End Interaction ---
+
 **Key Features:**
 
 *   **MCP Integration:** Seamlessly integrates with the MCP framework, enabling easy registration and access to the tools by AI agents. This allows agents to dynamically discover and utilize these mathematical functions as needed.

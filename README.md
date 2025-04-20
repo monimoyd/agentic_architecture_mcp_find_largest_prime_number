@@ -1,9 +1,11 @@
 # agentic_architecture_mcp_find_largest_prime_number
-This reposiotry I have used Agentic architecture and leveraging MCP to find largest prime number. The Agent has been built using Four Modules: Perception module, Memory Module, Decision, Action. MCP tools client and server are used for defining exposing functionalities e.g. Find Prime Numbers given a list, Find largest number from a list and Excluding a number from list. The agent also allows user to specify a preference which has been integrated with prompt.
+This reposiotry I have used Agentic architecture and leveraging MCP to find largest prime number for a given list. The Agent has been built using Four Modules: Perception module, Memory Module, Decision Module, Action module.  MCP tools are used for defining exposing functionalities e.g. Find Prime Numbers given a list, Find largest number from a list and Excluding a number from list and all the methods input and output uses pydantic datastructures which are defined in Data models module. The agent also allows user to specify a preference which has been integrated with the prompt. The prime number agent module acts as the main module and interacts with all the modules to provide the service.
+
+Various modules are detailed as below:
 
 ## Perception module
 
-This module is responsible for extracting structured information from user input using a Large Language Model (LLM) gemini-flash-2.0. It identifies the user's intent, key entities, and suggests a relevant tool hint for the Master Control Program (MCP). This structured information is crucial for the AI agent to understand the user's request and determine the appropriate course of action.
+This module is responsible for extracting structured information from user input using a Large Language Model (LLM) i.e. gemini-2.0-flash. It identifies the user's intent, key entities, and suggests a relevant tool hint for the Master Control Program (MCP). This structured information is crucial for the AI agent to understand the user's request and determine the appropriate course of action.
 
 **Key Features:**
 
@@ -88,7 +90,23 @@ This module offers a suite of functions that perform essential prime number calc
 *   **Error Debugging Prompt:** Defines a prompt for debugging errors encountered during tool execution. This prompt provides valuable information to the agent, enabling it to diagnose and resolve issues effectively.
 *   **Flexible Input/Output with Pydantic:** Employs Pydantic models to define the input and output structures of the tools, ensuring data validation, type safety, and improved code maintainability. This approach promotes consistency and reduces the risk of errors.
 
-## Interaction with Prime Number agentic tool
+## Starting tools and agents
+
+MCP tools can be started using the command below:
+
+```
+mcp run prime_number_tools.py
+
+```
+Prime number agent can be started using the command below:
+
+```
+python prime_number_agent.py
+
+```
+
+
+## Interaction with Prime Number Agentic Tool
 
 ```
 
